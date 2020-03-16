@@ -1,16 +1,27 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const TodoForm = ({ dispatch }) => {
 	const [inputValue, setInputValue] = useState("");
+	const [selectedDate, setSelectedDate] = useState(new Date());
 
 	const handleChange = e => {
 		setInputValue(e.target.value);
 	};
 
+	const handleDateChange = date => {
+		setSelectedDate(date);
+	};
+
 	const handleSubmit = e => {
 		e.preventDefault();
-		dispatch({ type: "ADD_TODO", payload: inputValue });
+		dispatch({
+			type: "ADD_TODO",
+			payload: { item: inputValue, dueDate: selectedDate }
+		});
 		setInputValue("");
+		setSelectedDate(new Date());
 	};
 
 	return (
@@ -24,6 +35,7 @@ const TodoForm = ({ dispatch }) => {
 					value={inputValue}
 					onChange={handleChange}
 				/>
+				<DatePicker selected={selectedDate} onChange={handleDateChange} />
 				<button type="submit">Add Todo</button>
 			</form>
 		</div>

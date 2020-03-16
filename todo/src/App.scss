@@ -2,6 +2,18 @@
 	text-align: center;
 }
 
+.todo-form {
+	form {
+		margin: 2% 0;
+		display: flex;
+		justify-content: center;
+
+		label {
+			display: none;
+		}
+	}
+}
+
 .todo-list {
 	display: flex;
 	flex-direction: column;
@@ -12,18 +24,33 @@
 		text-align: left;
 		width: 50%;
 		margin: 1% 0;
+		border: 2px solid lightgray;
+		border-radius: 15px;
+		padding: 2%;
 
 		&:hover {
 			cursor: pointer;
 		}
 
-		p {
+		.todo-item {
 			margin: 0 2%;
+			width: 100%;
+		}
+
+		.due-date {
+			color: gray;
+			text-align: right;
+			margin: 0;
+			width: 100%;
 		}
 	}
 
 	.todo.completed {
 		color: gray;
 		font-style: italic;
+	}
+
+	.todo.overdue {
+		border: 2px solid red;
 	}
 }
