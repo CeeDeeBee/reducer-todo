@@ -1,0 +1,29 @@
+.App {
+	text-align: center;
+}
+
+.todo-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.todo {
+		display: flex;
+		text-align: left;
+		width: 50%;
+		margin: 1% 0;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		p {
+			margin: 0 2%;
+		}
+	}
+
+	.todo.completed {
+		color: gray;
+		font-style: italic;
+	}
+}
